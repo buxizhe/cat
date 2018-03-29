@@ -3,6 +3,7 @@ package com.dianping.cat.build;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dianping.cat.report.alert.sender.sender.*;
 import org.unidal.lookup.configuration.AbstractResourceConfigurator;
 import org.unidal.lookup.configuration.Component;
 
@@ -81,11 +82,6 @@ import com.dianping.cat.report.alert.sender.receiver.SystemContactor;
 import com.dianping.cat.report.alert.sender.receiver.ThirdpartyContactor;
 import com.dianping.cat.report.alert.sender.receiver.TransactionContactor;
 import com.dianping.cat.report.alert.sender.receiver.WebContactor;
-import com.dianping.cat.report.alert.sender.sender.MailSender;
-import com.dianping.cat.report.alert.sender.sender.Sender;
-import com.dianping.cat.report.alert.sender.sender.SenderManager;
-import com.dianping.cat.report.alert.sender.sender.SmsSender;
-import com.dianping.cat.report.alert.sender.sender.WeixinSender;
 import com.dianping.cat.report.alert.sender.spliter.MailSpliter;
 import com.dianping.cat.report.alert.sender.spliter.SmsSpliter;
 import com.dianping.cat.report.alert.sender.spliter.Spliter;
@@ -193,7 +189,9 @@ public class AlarmComponentConfigurator extends AbstractResourceConfigurator {
 
 		all.add(C(SpliterManager.class));
 
-		all.add(C(Sender.class, MailSender.ID, MailSender.class).req(SenderConfigManager.class));
+		all.add(C(Sender.class, MailSmtpSender.ID, MailSmtpSender.class).req(SenderConfigManager.class));
+
+//		all.add(C(Sender.class, MailSender.ID, MailSender.class).req(SenderConfigManager.class));
 
 		all.add(C(Sender.class, SmsSender.ID, SmsSender.class).req(SenderConfigManager.class));
 

@@ -2952,7 +2952,7 @@
 		<component>
 			<role>com.dianping.cat.report.alert.sender.sender.Sender</role>
 			<role-hint>mail</role-hint>
-			<implementation>com.dianping.cat.report.alert.sender.sender.MailSender</implementation>
+			<implementation>com.dianping.cat.report.alert.sender.sender.MailSmtpSender</implementation>
 			<requirements>
 				<requirement>
 					<role>com.dianping.cat.report.alert.sender.config.SenderConfigManager</role>

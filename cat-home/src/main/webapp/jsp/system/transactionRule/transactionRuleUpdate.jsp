@@ -26,6 +26,7 @@
 													<option value="count">执行次数</option>
 								                	<option value="avg">响应时间</option>
 								                	<option value="failRatio">失败率</option>
+													<option value="failCount">失败数</option>
 								            	</select>
 				</tr>
 				<tr><th>${model.content}</th></tr>

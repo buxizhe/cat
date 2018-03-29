@@ -25,10 +25,11 @@
 					&nbsp;&nbsp;监控项&nbsp;&nbsp;<select name="monitor" id="monitor" style="width:200px;">
 													<option value="count">执行次数</option>
 								                	<option value="failRatio">失败率</option>
+													<option value="failCount">失败数</option>
 								            	</select>
 				</tr>
 				<tr><th>${model.content}</th></tr>
-					<tr>
+					<tr>F
 						<td style='text-align:center' colspan='2'><input class="btn btn-primary btn-sm" id="ruleSubmitButton" type="text" name="submit" value="提交"></button></td>
 					</tr>
 				</table>

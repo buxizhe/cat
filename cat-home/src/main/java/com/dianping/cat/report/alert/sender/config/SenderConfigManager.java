@@ -1,6 +1,8 @@
 package com.dianping.cat.report.alert.sender.config;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.codehaus.plexus.util.StringUtils;
 import org.unidal.dal.jdbc.DalNotFoundException;
@@ -102,6 +104,18 @@ public class SenderConfigManager implements Initializable {
 			s[i++] = par.getId();
 		}
 		return StringUtils.join(s, "&");
+	}
+
+	public Map<String, String> queryParMap(Sender sender){
+		List<Par> pars = sender.getPars();
+		Map<String,String> m = new HashMap<String, String>();
+
+		for (Par par : pars) {
+			String item = par.getId();
+			String[] kv = item.split("=");
+			m.put(kv[0], kv[1]);
+		}
+		return m;
 	}
 
 	private boolean storeConfig() {

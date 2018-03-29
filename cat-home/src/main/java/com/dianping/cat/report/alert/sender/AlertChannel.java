@@ -4,6 +4,8 @@ public enum AlertChannel {
 
 	MAIL("mail"),
 
+//	SMTPMAIL("smtpmail"),  // gaikuo 加入mail server的smtp配置
+
 	SMS("sms"),
 
 	WEIXIN("weixin");

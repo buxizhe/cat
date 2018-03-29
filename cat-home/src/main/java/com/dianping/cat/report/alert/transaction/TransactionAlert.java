@@ -67,6 +67,8 @@ public class TransactionAlert implements Task, LogEnabled {
 
 	private static String FAIL_RATIO = "failRatio";
 
+	private static String FAIL_COUNT = "failCount"; // 对错误数进行处理， add by gaikuo
+
 	private static final int DATA_AREADY_MINUTE = 1;
 
 	protected static final long DURATION = TimeHelper.ONE_MINUTE;
@@ -94,6 +96,14 @@ public class TransactionAlert implements Task, LogEnabled {
 
 				if (value.getCount() > 0) {
 					datas[entry.getKey()] = value.getFails() * 1.0 / value.getCount();
+				}
+			}
+		} else if (FAIL_COUNT.equalsIgnoreCase(monitor)) {
+			for (Entry<Integer, Range> entry : range.entrySet()) {
+				Range value = entry.getValue();
+
+				if (value.getCount() > 0) {
+					datas[entry.getKey()] = value.getFails() * 1.0;
 				}
 			}
 		}

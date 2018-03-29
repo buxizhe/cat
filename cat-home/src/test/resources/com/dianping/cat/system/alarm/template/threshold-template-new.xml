@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <threshold-template>
-	<connection baseUrl="http://cat.dianpingoa.com/cat/r/dashboard">
+	<connection baseUrl="http://59.110.27.7/cat/r/dashboard">
 		<param type="report" value="problem"></param>
 		<param type="type" value="heartbeat"></param>
 		<param type="domain" value="MobileApi"></param>

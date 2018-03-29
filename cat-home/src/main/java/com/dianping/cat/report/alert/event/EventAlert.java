@@ -63,6 +63,8 @@ public class EventAlert implements Task, LogEnabled {
 
 	private static String COUNT = "count";
 
+	private static String FAIL_COUNT = "failCount"; // 对错误数进行处理， add by gaikuo
+
 	private static String FAIL_RATIO = "failRatio";
 
 	private static final int DATA_AREADY_MINUTE = 1;
@@ -89,7 +91,17 @@ public class EventAlert implements Task, LogEnabled {
 					datas[entry.getKey()] = value.getFails() * 1.0 / value.getCount();
 				}
 			}
+			// add by gaikuo
+		} else if (FAIL_COUNT.equalsIgnoreCase(monitor)){
+			for (Entry<Integer, Range> entry : range.entrySet()) {
+				Range value = entry.getValue();
+
+				if (value.getCount() > 0) {
+					datas[entry.getKey()] = value.getFails() * 1.0;
+				}
+			}
 		}
+		// add by gaikuo end.
 		System.arraycopy(datas, start, result, 0, length);
 
 		return result;
@@ -134,6 +146,7 @@ public class EventAlert implements Task, LogEnabled {
 					results.addAll(m_dataChecker.checkData(data, conditions));
 				}
 			} else if (minute < 0) {
+
 				int start = 60 + minute + 1 - (maxMinute);
 				int end = 60 + minute;
 
